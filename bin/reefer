@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+# vim: et ts=2 sw=2
+
+require "trollop"
+require "pathname"
+require "optparse"
+
+# find lib/reefer.rb relatively, to support symlinking
+here = File.dirname(Pathname.new(__FILE__).realpath)
+require File.join(here, "..", "lib", "reefer.rb")
+
+opts = Trollop::options do
+  opt :url,      "Etherpad URL",    :type => String, :required => true
+  opt :revision, "Revision number", :type => :int
+end
+
+opts[:revision] ||= :latest
+pad = Reefer::Pad.new(opts[:url])
+rev = pad.revision(opts[:revision])
+
+puts rev.contents.to_html

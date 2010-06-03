@@ -5,5 +5,6 @@ require "spec/helper.rb"
 
 describe Reefer::Pad do
   it "returns a Revision"
-  it "returns the HTML source of the latest revision"
+  it "ignores irrelevant query strings"
+  it "returns the HTML of the latest revision"
 end

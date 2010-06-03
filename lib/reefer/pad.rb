@@ -1,12 +1,16 @@
 #!/usr/bin/env ruby
 # vim: et ts=2 sw=2
 
+require "uri"
+
 module Reefer
   class Pad
     attr_reader :domain, :name
 
     def initialize(url)
-      @domain, @name = url.split("/")
+      url = URI.parse(url)
+      @domain = url.host
+      @name = url.path
     end
 
     def revision(version)

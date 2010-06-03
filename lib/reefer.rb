@@ -2,6 +2,7 @@
 # vim: et ts=2 sw=2
 
 module Reefer
+  Version = "0.1.1"
 end
 
 here = File.dirname(__FILE__)

@@ -1,6 +1,4 @@
-Reefer is a tiny Ruby interface to a hosted Etherpad. Currently, there
-is very little functionality. In future, it may provide a more complete
-API. You may consider that an invitation for patches...
+Reefer is a tiny Ruby interface to a hosted Etherpad. Currently, there is very little functionality. In future, it may provide a more complete API. You may consider that an invitation for patches...
 
 
 Command-line Usage
@@ -22,16 +20,27 @@ Module Usage
 
 Fetch the current contents of a pad:
 
-    >>> Reefer::Pad.new("http://piratepad.net/anything").to_html
+    >>> url = "http://piratepad.net/anything"
+    >>> Reefer::Pad.new(url).to_html
     "<b>alpha</b> <i>bravo</i> <u>charlie</u> <s>delta</s>"
 
-Fetch a previos version:
+Fetch a previous version:
 
-    >>> Reefer::Pad.new("http://piratepad.net/anything").revision(6).to_html
+    >>> url = "http://piratepad.net/anything"
+    >>> Reefer::Pad.new(url).revision(6).to_html
     "alpha bravo"
 
 
-Requirements
+
+Installation
+------------
+
+Reefer is distributed via [rubygems.org](http://rubygems.org/gems/reefer). To install it:
+
+    $ sudo gem install reefer
+
+
+Dependencies
 ------------
 * Ruby 1.9
 * Nokogiri

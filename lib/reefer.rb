@@ -5,6 +5,7 @@ module Reefer
 end
 
 here = File.dirname(__FILE__)
+require here + "/reefer/errors.rb"
 require here + "/reefer/pad.rb"
 require here + "/reefer/fetch.rb"
 require here + "/reefer/revision.rb"

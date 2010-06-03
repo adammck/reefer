@@ -11,6 +11,12 @@ module Reefer
       url = URI.parse(url)
       @domain = url.host
       @name = url.path
+
+      # remove the leading slash (which is always present), but explode
+      # if any more are present. pad names can't contain them.
+      @name.gsub!(/^\//, "")
+      raise InvalidPadName\
+        if @name.index("/")
     end
 
     def revision(version)

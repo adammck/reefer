@@ -42,7 +42,7 @@ module Reefer
     end
 
     def to_html
-      contents.to_html
+      contents.to_html.strip
     end
   end
 end
